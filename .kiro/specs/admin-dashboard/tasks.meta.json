@@ -1,0 +1,274 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1.1 Install dependencies and configure environment": [
+      {
+        "executionId": "636ff2ec-35d6-4187-9486-eac5d56cf71c",
+        "chatSessionId": "sess_57c32f76-642a-453f-8ef0-d9af933e5604",
+        "timestamp": 1788331611790
+      },
+      {
+        "executionId": "636ff2ec-35d6-4187-9486-eac5d56cf71c",
+        "chatSessionId": "sess_57c32f76-642a-453f-8ef0-d9af933e5604",
+        "timestamp": 1788331635038
+      }
+    ],
+    "1.2 Create type definitions and configuration": [
+      {
+        "executionId": "636ff2ec-35d6-4187-9486-eac5d56cf71c",
+        "chatSessionId": "sess_57c32f76-642a-453f-8ef0-d9af933e5604",
+        "timestamp": 1788331612123
+      },
+      {
+        "executionId": "636ff2ec-35d6-4187-9486-eac5d56cf71c",
+        "chatSessionId": "sess_57c32f76-642a-453f-8ef0-d9af933e5604",
+        "timestamp": 1788331635869
+      }
+    ],
+    "2.1 Create session storage utilities": [
+      {
+        "executionId": "636ff2ec-35d6-4187-9486-eac5d56cf71c",
+        "chatSessionId": "sess_57c32f76-642a-453f-8ef0-d9af933e5604",
+        "timestamp": 1788331612378
+      }
+    ],
+    "2.2 Implement Google OAuth integration": [
+      {
+        "executionId": "636ff2ec-35d6-4187-9486-eac5d56cf71c",
+        "chatSessionId": "sess_57c32f76-642a-453f-8ef0-d9af933e5604",
+        "timestamp": 1788331612623
+      }
+    ],
+    "2.3 Create AuthProvider context": [
+      {
+        "executionId": "636ff2ec-35d6-4187-9486-eac5d56cf71c",
+        "chatSessionId": "sess_57c32f76-642a-453f-8ef0-d9af933e5604",
+        "timestamp": 1788331612850
+      }
+    ],
+    "2.4 Create useAuth hook": [
+      {
+        "executionId": "636ff2ec-35d6-4187-9486-eac5d56cf71c",
+        "chatSessionId": "sess_57c32f76-642a-453f-8ef0-d9af933e5604",
+        "timestamp": 1788331613130
+      }
+    ],
+    "3.1 Create API client wrapper": [
+      {
+        "executionId": "636ff2ec-35d6-4187-9486-eac5d56cf71c",
+        "chatSessionId": "sess_57c32f76-642a-453f-8ef0-d9af933e5604",
+        "timestamp": 1788331613440
+      }
+    ],
+    "3.2 Create API endpoint definitions": [
+      {
+        "executionId": "636ff2ec-35d6-4187-9486-eac5d56cf71c",
+        "chatSessionId": "sess_57c32f76-642a-453f-8ef0-d9af933e5604",
+        "timestamp": 1788331613719
+      }
+    ],
+    "4.1 Create providers wrapper": [
+      {
+        "executionId": "636ff2ec-35d6-4187-9486-eac5d56cf71c",
+        "chatSessionId": "sess_57c32f76-642a-453f-8ef0-d9af933e5604",
+        "timestamp": 1788331613986
+      }
+    ],
+    "4.2 Update root layout": [
+      {
+        "executionId": "636ff2ec-35d6-4187-9486-eac5d56cf71c",
+        "chatSessionId": "sess_57c32f76-642a-453f-8ef0-d9af933e5604",
+        "timestamp": 1788331614233
+      }
+    ],
+    "5.1 Create middleware for route protection": [
+      {
+        "executionId": "636ff2ec-35d6-4187-9486-eac5d56cf71c",
+        "chatSessionId": "sess_57c32f76-642a-453f-8ef0-d9af933e5604",
+        "timestamp": 1788331614473
+      }
+    ],
+    "5.2 Add client-side auth guards to dashboard layout": [
+      {
+        "executionId": "636ff2ec-35d6-4187-9486-eac5d56cf71c",
+        "chatSessionId": "sess_57c32f76-642a-453f-8ef0-d9af933e5604",
+        "timestamp": 1788331614719
+      }
+    ],
+    "6.1 Create useStats hook": [
+      {
+        "executionId": "636ff2ec-35d6-4187-9486-eac5d56cf71c",
+        "chatSessionId": "sess_57c32f76-642a-453f-8ef0-d9af933e5604",
+        "timestamp": 1788331615000
+      }
+    ],
+    "6.2 Create useBusinesses hook": [
+      {
+        "executionId": "636ff2ec-35d6-4187-9486-eac5d56cf71c",
+        "chatSessionId": "sess_57c32f76-642a-453f-8ef0-d9af933e5604",
+        "timestamp": 1788331615241
+      }
+    ],
+    "6.3 Create useBusinessDetail hook": [
+      {
+        "executionId": "636ff2ec-35d6-4187-9486-eac5d56cf71c",
+        "chatSessionId": "sess_57c32f76-642a-453f-8ef0-d9af933e5604",
+        "timestamp": 1788331615488
+      }
+    ],
+    "7.1 Create error display components": [
+      {
+        "executionId": "636ff2ec-35d6-4187-9486-eac5d56cf71c",
+        "chatSessionId": "sess_57c32f76-642a-453f-8ef0-d9af933e5604",
+        "timestamp": 1788331615886
+      }
+    ],
+    "7.2 Create loading indicator components": [
+      {
+        "executionId": "636ff2ec-35d6-4187-9486-eac5d56cf71c",
+        "chatSessionId": "sess_57c32f76-642a-453f-8ef0-d9af933e5604",
+        "timestamp": 1788331616140
+      }
+    ],
+    "7.3 Create Navigation component": [
+      {
+        "executionId": "636ff2ec-35d6-4187-9486-eac5d56cf71c",
+        "chatSessionId": "sess_57c32f76-642a-453f-8ef0-d9af933e5604",
+        "timestamp": 1788331616380
+      }
+    ],
+    "7.4 Create StatsCard component": [
+      {
+        "executionId": "636ff2ec-35d6-4187-9486-eac5d56cf71c",
+        "chatSessionId": "sess_57c32f76-642a-453f-8ef0-d9af933e5604",
+        "timestamp": 1788331616606
+      }
+    ],
+    "7.5 Create StatusBadge component": [
+      {
+        "executionId": "636ff2ec-35d6-4187-9486-eac5d56cf71c",
+        "chatSessionId": "sess_57c32f76-642a-453f-8ef0-d9af933e5604",
+        "timestamp": 1788331616832
+      }
+    ],
+    "7.6 Create RoleBadge component": [
+      {
+        "executionId": "636ff2ec-35d6-4187-9486-eac5d56cf71c",
+        "chatSessionId": "sess_57c32f76-642a-453f-8ef0-d9af933e5604",
+        "timestamp": 1788331617064
+      }
+    ],
+    "8.1 Create login page with Google Sign-In": [
+      {
+        "executionId": "636ff2ec-35d6-4187-9486-eac5d56cf71c",
+        "chatSessionId": "sess_57c32f76-642a-453f-8ef0-d9af933e5604",
+        "timestamp": 1788331617289
+      }
+    ],
+    "9.1 Create dashboard layout": [
+      {
+        "executionId": "636ff2ec-35d6-4187-9486-eac5d56cf71c",
+        "chatSessionId": "sess_57c32f76-642a-453f-8ef0-d9af933e5604",
+        "timestamp": 1788331617546
+      }
+    ],
+    "9.2 Create home page with statistics": [
+      {
+        "executionId": "636ff2ec-35d6-4187-9486-eac5d56cf71c",
+        "chatSessionId": "sess_57c32f76-642a-453f-8ef0-d9af933e5604",
+        "timestamp": 1788331617849
+      }
+    ],
+    "10. Checkpoint - Ensure all tests pass": [
+      {
+        "executionId": "636ff2ec-35d6-4187-9486-eac5d56cf71c",
+        "chatSessionId": "sess_57c32f76-642a-453f-8ef0-d9af933e5604",
+        "timestamp": 1788331618120
+      }
+    ],
+    "11.1 Create BusinessTable component": [
+      {
+        "executionId": "636ff2ec-35d6-4187-9486-eac5d56cf71c",
+        "chatSessionId": "sess_57c32f76-642a-453f-8ef0-d9af933e5604",
+        "timestamp": 1788331618359
+      }
+    ],
+    "11.2 Create businesses list page": [
+      {
+        "executionId": "636ff2ec-35d6-4187-9486-eac5d56cf71c",
+        "chatSessionId": "sess_57c32f76-642a-453f-8ef0-d9af933e5604",
+        "timestamp": 1788331618588
+      }
+    ],
+    "12.1 Create SubscriptionForm component": [
+      {
+        "executionId": "636ff2ec-35d6-4187-9486-eac5d56cf71c",
+        "chatSessionId": "sess_57c32f76-642a-453f-8ef0-d9af933e5604",
+        "timestamp": 1788331618837
+      }
+    ],
+    "12.2 Create business detail page": [
+      {
+        "executionId": "636ff2ec-35d6-4187-9486-eac5d56cf71c",
+        "chatSessionId": "sess_57c32f76-642a-453f-8ef0-d9af933e5604",
+        "timestamp": 1788331619087
+      }
+    ],
+    "13.1 Create date formatting utilities": [
+      {
+        "executionId": "636ff2ec-35d6-4187-9486-eac5d56cf71c",
+        "chatSessionId": "sess_57c32f76-642a-453f-8ef0-d9af933e5604",
+        "timestamp": 1788331619345
+      }
+    ],
+    "13.2 Create validation helpers": [
+      {
+        "executionId": "636ff2ec-35d6-4187-9486-eac5d56cf71c",
+        "chatSessionId": "sess_57c32f76-642a-453f-8ef0-d9af933e5604",
+        "timestamp": 1788331619621
+      }
+    ],
+    "14.1 Add responsive styles and mobile adaptations": [
+      {
+        "executionId": "636ff2ec-35d6-4187-9486-eac5d56cf71c",
+        "chatSessionId": "sess_57c32f76-642a-453f-8ef0-d9af933e5604",
+        "timestamp": 1788331619871
+      }
+    ],
+    "15.1 Test complete authentication flow": [
+      {
+        "executionId": "636ff2ec-35d6-4187-9486-eac5d56cf71c",
+        "chatSessionId": "sess_57c32f76-642a-453f-8ef0-d9af933e5604",
+        "timestamp": 1788331620124
+      }
+    ],
+    "15.2 Test all pages and navigation": [
+      {
+        "executionId": "636ff2ec-35d6-4187-9486-eac5d56cf71c",
+        "chatSessionId": "sess_57c32f76-642a-453f-8ef0-d9af933e5604",
+        "timestamp": 1788331620369
+      }
+    ],
+    "15.3 Test error handling": [
+      {
+        "executionId": "636ff2ec-35d6-4187-9486-eac5d56cf71c",
+        "chatSessionId": "sess_57c32f76-642a-453f-8ef0-d9af933e5604",
+        "timestamp": 1788331620665
+      }
+    ],
+    "15.4 Verify configuration and deployment readiness": [
+      {
+        "executionId": "636ff2ec-35d6-4187-9486-eac5d56cf71c",
+        "chatSessionId": "sess_57c32f76-642a-453f-8ef0-d9af933e5604",
+        "timestamp": 1788331620952
+      }
+    ],
+    "16. Final checkpoint - Ensure all tests pass": [
+      {
+        "executionId": "636ff2ec-35d6-4187-9486-eac5d56cf71c",
+        "chatSessionId": "sess_57c32f76-642a-453f-8ef0-d9af933e5604",
+        "timestamp": 1788331621217
+      }
+    ]
+  }
+}
