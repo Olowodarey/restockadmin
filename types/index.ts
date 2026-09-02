@@ -1,22 +1,23 @@
-// Shared TypeScript type definitions for the Admin Dashboard
-
-// ============================================================================
-// User Types
-// ============================================================================
-
-/**
- * User roles in the system
- * MASTER_ADMIN: System-wide administrator with access to all businesses
- * OWNER: Business owner with access to their own business
- */
+// Enumerations
 export enum UserRole {
-  MASTER_ADMIN = 'MASTER_ADMIN',
-  OWNER = 'OWNER',
+  MASTER_ADMIN = "MASTER_ADMIN",
+  OWNER = "OWNER",
 }
 
-/**
- * User entity representing an authenticated account
- */
+export enum SubscriptionStatus {
+  TRIALING = "TRIALING",
+  ACTIVE = "ACTIVE",
+  PAST_DUE = "PAST_DUE",
+  SUSPENDED = "SUSPENDED",
+  CANCELED = "CANCELED",
+}
+
+export enum BillingInterval {
+  MONTHLY = "MONTHLY",
+  YEARLY = "YEARLY",
+}
+
+// User entity
 export interface User {
   id: string;
   email: string;
@@ -24,69 +25,41 @@ export interface User {
   name: string;
   role: UserRole;
   businessId: string | null;
-  createdAt: string; // ISO 8601 date string
+  createdAt: string;
 }
 
-// ============================================================================
-// Subscription Types
-// ============================================================================
-
-/**
- * Subscription status enumeration
- */
-export enum SubscriptionStatus {
-  TRIALING = 'TRIALING',
-  ACTIVE = 'ACTIVE',
-  PAST_DUE = 'PAST_DUE',
-  SUSPENDED = 'SUSPENDED',
-  CANCELED = 'CANCELED',
-}
-
-/**
- * Billing interval enumeration
- */
-export enum BillingInterval {
-  MONTHLY = 'MONTHLY',
-  YEARLY = 'YEARLY',
-}
-
-/**
- * Subscription entity representing a business's subscription
- */
-export interface Subscription {
-  id: string;
-  businessId: string;
-  status: SubscriptionStatus;
-  billingInterval: BillingInterval;
-  currentPeriodStart: string | null; // ISO 8601 date string
-  currentPeriodEnd: string | null; // ISO 8601 date string
-  createdAt: string; // ISO 8601 date string
-  updatedAt: string; // ISO 8601 date string
-}
-
-// ============================================================================
-// Business Types
-// ============================================================================
-
-/**
- * Business entity representing a shop/tenant
- */
+// Business entity
 export interface Business {
   id: string;
   name: string;
   phone: string | null;
   address: string | null;
-  createdAt: string; // ISO 8601 date string
-  updatedAt: string; // ISO 8601 date string
-  subscription?: {
-    status: SubscriptionStatus;
-  };
-}
-
-/**
- * Detailed business entity with associated users and subscription
- */
-export interface BusinessDetail extends Omit<Business, 'subscription'> {
+  createdAt: string;
+  updatedAt: string;
   users: User[];
   subscription: Subscription;
+}
+
+// Subscription entity
+export interface Subscription {
+  id: string;
+  businessId: string;
+  status: SubscriptionStatus;
+  billingInterval: BillingInterval;
+  currentPeriodStart: string | null;
+  currentPeriodEnd: string | null;
+  createdAt: string;
+  updatedAt: string;
+}
+
+// Session data stored in browser
+export interface Session {
+  accessToken: string;
+  user: User;
+}
+
+// Dashboard statistics
+export interface DashboardStats {
+  totalBusinesses: number;
+  byStatus: Record<SubscriptionStatus, number>;
 }

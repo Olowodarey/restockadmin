@@ -1,102 +1,45 @@
-// API-specific type definitions for request/response structures
-
-import type {
+import {
   User,
   Business,
-  BusinessDetail,
   Subscription,
+  DashboardStats,
   SubscriptionStatus,
   BillingInterval,
-} from '@/types';
+} from "@/types";
 
-// ============================================================================
-// Authentication Types
-// ============================================================================
+// Auth API request/response types
+export interface SignInRequest {
+  idToken: string;
+  businessName?: string;
+}
 
-/**
- * Response from the /auth/google endpoint
- */
-export interface AuthResponse {
+export interface SignInResponse {
   accessToken: string;
   user: User;
 }
 
-/**
- * Request body for Google sign-in
- */
-export interface GoogleSignInRequest {
-  token: string;
+export interface ErrorResponse {
+  message: string;
+  error: string;
+  statusCode: number;
 }
 
-// ============================================================================
-// Statistics Types
-// ============================================================================
+// Admin stats API response
+export type StatsResponse = DashboardStats;
 
-/**
- * Response from the /admin/stats endpoint
- */
-export interface StatsResponse {
-  totalBusinesses: number;
-  subscriptionsByStatus: Record<SubscriptionStatus, number>;
-}
+// Business list API response
+export type BusinessListResponse = Business[];
 
-// ============================================================================
-// Business Types
-// ============================================================================
+// Business detail API response
+export type BusinessDetailResponse = Business;
 
-/**
- * Query parameters for the /admin/businesses endpoint
- */
-export interface BusinessesQuery {
-  search?: string;
-}
-
-/**
- * Response from the /admin/businesses endpoint
- */
-export type BusinessesResponse = Business[];
-
-/**
- * Response from the /admin/businesses/:id endpoint
- */
-export type BusinessDetailResponse = BusinessDetail;
-
-// ============================================================================
-// Subscription Types
-// ============================================================================
-
-/**
- * DTO for updating a subscription via PATCH /admin/businesses/:id/subscription
- */
-export interface UpdateSubscriptionDTO {
+// Subscription update request
+export interface UpdateSubscriptionRequest {
   status?: SubscriptionStatus;
   billingInterval?: BillingInterval;
-  currentPeriodStart?: string; // ISO 8601 date string
-  currentPeriodEnd?: string; // ISO 8601 date string
+  currentPeriodStart?: string; // ISO 8601
+  currentPeriodEnd?: string; // ISO 8601
 }
 
-/**
- * Response from the subscription update endpoint
- */
+// Subscription update response
 export type UpdateSubscriptionResponse = Subscription;
-
-// ============================================================================
-// Error Response Types
-// ============================================================================
-
-/**
- * Standard error response from the API
- */
-export interface APIErrorResponse {
-  statusCode: number;
-  message: string | string[];
-  error?: string;
-}
-
-/**
- * Validation error details
- */
-export interface ValidationErrorDetail {
-  field: string;
-  message: string;
-}

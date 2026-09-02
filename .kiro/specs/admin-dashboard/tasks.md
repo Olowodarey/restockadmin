@@ -6,35 +6,35 @@ This implementation plan converts the Admin Dashboard design into actionable cod
 
 ## Tasks
 
-- [ ] 1. Project setup and configuration
-  - [-] 1.1 Install dependencies and configure environment
+- [x] 1. Project setup and configuration
+  - [x] 1.1 Install dependencies and configure environment
     - Install `@react-oauth/google` package for Google OAuth integration
     - Create `.env.local` file with `NEXT_PUBLIC_API_BASE_URL` and `NEXT_PUBLIC_GOOGLE_CLIENT_ID`
     - Update `.env.local.example` with required environment variables
     - _Requirements: 11.1, 11.2, 11.4_
-  - [-] 1.2 Create type definitions and configuration
+  - [x] 1.2 Create type definitions and configuration
     - Create `types/index.ts` with all shared TypeScript interfaces (User, Business, Subscription, enums)
     - Create `lib/config.ts` to load and validate environment variables
     - Create `lib/api/types.ts` with API-specific type definitions
     - _Requirements: 11.1, 11.2, 11.5_
 
-- [ ] 2. Implement authentication system
-  - [~] 2.1 Create session storage utilities
+- [x] 2. Implement authentication system
+  - [x] 2.1 Create session storage utilities
     - Create `lib/auth/storage.ts` with functions for saveSession, loadSession, clearSession, validateToken
     - Implement localStorage operations for `admin_token` and `admin_user` keys
     - _Requirements: 3.1, 3.2, 3.3, 3.4, 3.6_
-  - [~] 2.2 Implement Google OAuth integration
+  - [x] 2.2 Implement Google OAuth integration
     - Create `lib/auth/google.ts` to export Google client configuration
     - Configure GoogleOAuthProvider wrapper with client ID from environment
     - _Requirements: 1.2, 1.3, 11.4_
-  - [~] 2.3 Create AuthProvider context
+  - [x] 2.3 Create AuthProvider context
     - Create `lib/auth/AuthProvider.tsx` with authentication state management
     - Implement signIn function that sends Google token to backend `/auth/google`
     - Validate user role is MASTER_ADMIN before storing session
     - Implement signOut function that clears storage and redirects
     - Restore session from localStorage on mount
     - _Requirements: 1.4, 1.5, 1.6, 1.7, 2.1, 2.2, 2.3, 3.3, 3.4, 3.6, 3.7_
-  - [~] 2.4 Create useAuth hook
+  - [x] 2.4 Create useAuth hook
     - Create `lib/auth/useAuth.ts` that exports authentication context
     - Export hook to access user, token, isAuthenticated, isLoading, signIn, signOut
     - _Requirements: 1.6, 3.6_
@@ -51,14 +51,14 @@ This implementation plan converts the Admin Dashboard design into actionable cod
     - **Property 6: Sign-Out Session Clearing**
     - **Validates: Requirements 3.6**
 
-- [ ] 3. Implement API client module
-  - [~] 3.1 Create API client wrapper
+- [x] 3. Implement API client module
+  - [x] 3.1 Create API client wrapper
     - Create `lib/api/client.ts` with APIClient class
     - Implement get, post, patch, delete methods with auth header injection
     - Handle response parsing and error transformation
     - Call onUnauthorized callback for 401 responses
     - _Requirements: 5.2, 6.2, 8.2, 9.8, 10.1, 10.2, 10.3, 10.7_
-  - [~] 3.2 Create API endpoint definitions
+  - [x] 3.2 Create API endpoint definitions
     - Create `lib/api/endpoints.ts` with endpoint path constants
     - Create typed API functions for each endpoint (signInWithGoogle, getStats, getBusinesses, getBusinessDetail, updateSubscription)
     - _Requirements: 1.5, 5.1, 6.1, 8.1, 9.7_
@@ -72,71 +72,71 @@ This implementation plan converts the Admin Dashboard design into actionable cod
     - **Property 20: Universal 401 Handling**
     - **Validates: Requirements 5.6, 6.6, 8.7, 9.15, 10.1, 10.2, 10.3**
 
-- [ ] 4. Create providers and root layout
-  - [~] 4.1 Create providers wrapper
+- [x] 4. Create providers and root layout
+  - [x] 4.1 Create providers wrapper
     - Create `app/providers.tsx` with client component wrapping GoogleOAuthProvider and AuthProvider
     - _Requirements: 1.2, 1.3_
-  - [~] 4.2 Update root layout
+  - [x] 4.2 Update root layout
     - Update `app/layout.tsx` to wrap children with Providers component
     - _Requirements: 1.2_
 
-- [ ] 5. Implement route protection
-  - [~] 5.1 Create middleware for route protection
+- [x] 5. Implement route protection
+  - [x] 5.1 Create middleware for route protection
     - Create `middleware.ts` with route protection logic
     - Protect home, businesses, and business detail routes
     - Redirect unauthenticated users to login
     - Redirect authenticated users away from login
     - _Requirements: 4.1, 4.2, 4.3, 4.4, 4.5, 4.6_
-  - [~] 5.2 Add client-side auth guards to dashboard layout
+  - [x] 5.2 Add client-side auth guards to dashboard layout
     - Implement redirect logic in dashboard layout for invalid sessions
     - _Requirements: 4.1, 4.5_
   - [ ]\* 5.3 Write property test for route protection
     - **Property 7: Route Protection**
     - **Validates: Requirements 4.1, 4.5**
 
-- [ ] 6. Create custom data fetching hooks
-  - [~] 6.1 Create useStats hook
+- [x] 6. Create custom data fetching hooks
+  - [x] 6.1 Create useStats hook
     - Create `lib/hooks/useStats.ts` to fetch dashboard statistics
     - Implement loading and error state management
     - Call getStats API function
     - _Requirements: 5.1, 5.2, 5.8_
-  - [~] 6.2 Create useBusinesses hook
+  - [x] 6.2 Create useBusinesses hook
     - Create `lib/hooks/useBusinesses.ts` with search parameter support
     - Implement loading and error state management
     - Call getBusinesses API function with search query
     - _Requirements: 6.1, 6.2, 7.3, 7.5_
-  - [~] 6.3 Create useBusinessDetail hook
+  - [x] 6.3 Create useBusinessDetail hook
     - Create `lib/hooks/useBusinessDetail.ts` with business ID parameter
     - Implement loading and error state management
     - Provide mutate function for optimistic updates
     - Call getBusinessDetail API function
     - _Requirements: 8.1, 8.2, 8.9_
 
-- [ ] 7. Implement shared UI components
-  - [~] 7.1 Create error display components
+- [x] 7. Implement shared UI components
+  - [x] 7.1 Create error display components
     - Create ErrorMessage component in `app/(dashboard)/components/ErrorMessage.tsx`
     - Include optional retry button
     - _Requirements: 1.8, 1.9, 2.2, 5.7, 6.7, 8.6, 8.8, 9.16_
-  - [~] 7.2 Create loading indicator components
+  - [x] 7.2 Create loading indicator components
     - Create LoadingSpinner component in `app/(dashboard)/components/LoadingSpinner.tsx`
     - Create LoadingScreen component for full-page loading states
     - _Requirements: 5.8, 6.8, 8.9_
-  - [~] 7.3 Create Navigation component
+  - [x] 7.3 Create Navigation component
     - Create `app/(dashboard)/components/Navigation.tsx` with header navigation
     - Include links to home and businesses pages
     - Display authenticated user name and sign-out button
     - Implement responsive mobile menu
     - _Requirements: 12.1, 12.2, 12.3, 12.5, 12.6_
-  - [~] 7.4 Create StatsCard component
+  - [x] 7.4 Create StatsCard component
     - Create `app/(dashboard)/components/StatsCard.tsx` for displaying statistics
     - Support title, value, icon, and variant props
     - Implement variant styling (default, success, info, warning, error, gray)
     - _Requirements: 5.3, 5.4, 5.5_
-  - [~] 7.5 Create StatusBadge component
+  - [x] 7.5 Create StatusBadge component
     - Create `app/(dashboard)/components/StatusBadge.tsx` for subscription status display
     - Support all subscription status values with appropriate colors
     - _Requirements: 6.3, 8.5_
-  - [~] 7.6 Create RoleBadge component
+  - [x] 7.6 Create RoleBadge component
     - Create `app/(dashboard)/components/RoleBadge.tsx` for user role display
     - Support all role values with appropriate styling
     - _Requirements: 8.4_
@@ -147,8 +147,8 @@ This implementation plan converts the Admin Dashboard design into actionable cod
     - **Property 27: Minimum Touch Target Size**
     - **Validates: Requirements 12.6**
 
-- [ ] 8. Implement login page
-  - [~] 8.1 Create login page with Google Sign-In
+- [x] 8. Implement login page
+  - [x] 8.1 Create login page with Google Sign-In
     - Create `app/(auth)/login/page.tsx` with Google OAuth button
     - Handle successful sign-in and redirect to home
     - Display error messages for sign-in failures
@@ -159,13 +159,13 @@ This implementation plan converts the Admin Dashboard design into actionable cod
     - **Property 2: Google Token Transmission**
     - **Validates: Requirements 1.5**
 
-- [ ] 9. Implement dashboard pages
-  - [~] 9.1 Create dashboard layout
+- [x] 9. Implement dashboard pages
+  - [x] 9.1 Create dashboard layout
     - Create `app/(dashboard)/layout.tsx` with Navigation component
     - Implement client-side auth guard with redirect to login
     - Show loading screen while checking authentication
     - _Requirements: 4.1, 4.5, 12.1_
-  - [~] 9.2 Create home page with statistics
+  - [x] 9.2 Create home page with statistics
     - Create `app/(dashboard)/page.tsx` to display dashboard statistics
     - Use useStats hook to fetch data
     - Display total businesses count
@@ -176,18 +176,18 @@ This implementation plan converts the Admin Dashboard design into actionable cod
     - **Property 8: Statistics Display**
     - **Validates: Requirements 5.3, 5.4, 5.5**
 
-- [~] 10. Checkpoint - Ensure all tests pass
+- [x] 10. Checkpoint - Ensure all tests pass
   - Ensure all tests pass, ask the user if questions arise.
 
-- [ ] 11. Implement business list page
-  - [~] 11.1 Create BusinessTable component
+- [x] 11. Implement business list page
+  - [x] 11.1 Create BusinessTable component
     - Create `app/(dashboard)/components/BusinessTable.tsx` to display business list
     - Display name, creation date, and subscription status columns
     - Sort businesses by creation date in descending order
     - Make rows clickable to navigate to detail page
     - Show empty state when no businesses found
     - _Requirements: 6.3, 6.4, 6.5_
-  - [~] 11.2 Create businesses list page
+  - [x] 11.2 Create businesses list page
     - Create `app/(dashboard)/businesses/page.tsx` with search functionality
     - Use useBusinesses hook with search parameter
     - Implement search input field with form submission
@@ -211,8 +211,8 @@ This implementation plan converts the Admin Dashboard design into actionable cod
     - **Property 13: Search Query Transmission**
     - **Validates: Requirements 7.3**
 
-- [ ] 12. Implement business detail page
-  - [~] 12.1 Create SubscriptionForm component
+- [x] 12. Implement business detail page
+  - [x] 12.1 Create SubscriptionForm component
     - Create `app/(dashboard)/components/SubscriptionForm.tsx` for editing subscriptions
     - Pre-populate form with current subscription values
     - Implement dropdowns for status and billing interval
@@ -222,7 +222,7 @@ This implementation plan converts the Admin Dashboard design into actionable cod
     - Display validation errors from 400 responses
     - Display success message on update
     - _Requirements: 9.1, 9.2, 9.3, 9.4, 9.5, 9.6, 9.7, 9.8, 9.9, 9.10, 9.11, 9.12, 9.13, 9.14, 9.15, 9.16, 9.17_
-  - [~] 12.2 Create business detail page
+  - [x] 12.2 Create business detail page
     - Create `app/(dashboard)/businesses/[id]/page.tsx` with business ID from route params
     - Use useBusinessDetail hook to fetch data
     - Display business information (name, phone, address, creation date)
@@ -250,18 +250,18 @@ This implementation plan converts the Admin Dashboard design into actionable cod
     - **Property 15: Business Detail Display**
     - **Validates: Requirements 8.3, 8.4, 8.5**
 
-- [ ] 13. Add utility functions
-  - [~] 13.1 Create date formatting utilities
+- [x] 13. Add utility functions
+  - [x] 13.1 Create date formatting utilities
     - Create `lib/utils/format.ts` with formatDate function for displaying dates
     - Create ISO 8601 conversion utilities for form submissions
     - _Requirements: 9.9_
-  - [~] 13.2 Create validation helpers
+  - [x] 13.2 Create validation helpers
     - Create `lib/utils/validation.ts` for client-side form validation
     - Implement date range validation for subscription periods
     - _Requirements: 9.6_
 
-- [ ] 14. Implement responsive design
-  - [~] 14.1 Add responsive styles and mobile adaptations
+- [x] 14. Implement responsive design
+  - [x] 14.1 Add responsive styles and mobile adaptations
     - Update all components with Tailwind responsive classes
     - Implement mobile hamburger menu in Navigation component
     - Make BusinessTable responsive with horizontal scroll or card layout
@@ -272,14 +272,14 @@ This implementation plan converts the Admin Dashboard design into actionable cod
     - **Property 26: Responsive Layout Adaptation**
     - **Validates: Requirements 12.4**
 
-- [ ] 15. Final checkpoint and integration testing
-  - [~] 15.1 Test complete authentication flow
+- [x] 15. Final checkpoint and integration testing
+  - [x] 15.1 Test complete authentication flow
     - Verify Google sign-in works correctly
     - Verify session persistence across page refreshes
     - Verify sign-out clears session and redirects
     - Verify role enforcement rejects non-MASTER_ADMIN users
     - _Requirements: 1.1-2.4, 3.1-3.7_
-  - [~] 15.2 Test all pages and navigation
+  - [x] 15.2 Test all pages and navigation
     - Verify route protection works for all protected routes
     - Verify navigation between pages works correctly
     - Verify statistics display correctly on home page
@@ -287,19 +287,19 @@ This implementation plan converts the Admin Dashboard design into actionable cod
     - Verify business detail page shows all information
     - Verify subscription editing and update work
     - _Requirements: 4.1-12.6_
-  - [~] 15.3 Test error handling
+  - [x] 15.3 Test error handling
     - Verify 401 responses clear session and redirect to login
     - Verify 404 responses show appropriate messages
     - Verify 400 validation errors display correctly
     - Verify 5xx errors show generic error message
     - _Requirements: 10.1-10.7_
-  - [~] 15.4 Verify configuration and deployment readiness
+  - [x] 15.4 Verify configuration and deployment readiness
     - Verify environment variables are correctly loaded
     - Verify API URLs are constructed correctly
     - Test build process runs successfully
     - _Requirements: 11.1-11.5_
 
-- [~] 16. Final checkpoint - Ensure all tests pass
+- [x] 16. Final checkpoint - Ensure all tests pass
   - Ensure all tests pass, ask the user if questions arise.
 
 ## Notes
