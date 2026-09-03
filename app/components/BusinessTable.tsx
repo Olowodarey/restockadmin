@@ -58,7 +58,7 @@ export function BusinessTable({ businesses }: BusinessTableProps) {
                 </Link>
               </td>
               <td className="whitespace-nowrap px-6 py-4 text-sm text-gray-500">
-                {business.users[0]?.email || "N/A"}
+                {business.memberships?.[0]?.user?.email || "N/A"}
               </td>
               <td className="whitespace-nowrap px-6 py-4">
                 <StatusBadge status={business.subscription.status} />

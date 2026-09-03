@@ -1,3 +1,4 @@
+import { SubscriptionStatus } from "@/types";
 import { apiClient } from "./client";
 import {
   SignInRequest,
@@ -26,12 +27,18 @@ export async function getStats(): Promise<StatsResponse> {
 }
 
 /**
- * Get list of businesses with optional search
+ * Get list of businesses, optionally filtered by name search and/or
+ * subscription status (the latter is what powers "show me who's actually
+ * subscribed", not just a count).
  */
 export async function getBusinesses(
-  search?: string
+  search?: string,
+  status?: SubscriptionStatus
 ): Promise<BusinessListResponse> {
-  const query = search ? `?search=${encodeURIComponent(search)}` : "";
+  const params = new URLSearchParams();
+  if (search) params.set("search", search);
+  if (status) params.set("status", status);
+  const query = params.toString() ? `?${params.toString()}` : "";
   return apiClient.get<BusinessListResponse>(`/admin/businesses${query}`);
 }
 

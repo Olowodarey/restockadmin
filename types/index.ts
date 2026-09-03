@@ -17,14 +17,28 @@ export enum BillingInterval {
   YEARLY = "YEARLY",
 }
 
-// User entity
+// User entity — no businessId here: an owner can hold membership in more
+// than one Business now, via BusinessMembership below, so "which business"
+// is never a single field on the user itself.
 export interface User {
   id: string;
   email: string;
   googleId: string;
   name: string;
   role: UserRole;
-  businessId: string | null;
+  createdAt: string;
+}
+
+// Join row between a Business and a User — mirrors the backend's
+// BusinessMembership entity. A Business's owner(s) are reached via
+// business.memberships[].user, not a direct business.users array (the
+// backend dropped that direct relation when multi-business support landed).
+export interface BusinessMembership {
+  id: string;
+  businessId: string;
+  userId: string;
+  user: User;
+  role: string;
   createdAt: string;
 }
 
@@ -36,7 +50,7 @@ export interface Business {
   address: string | null;
   createdAt: string;
   updatedAt: string;
-  users: User[];
+  memberships: BusinessMembership[];
   subscription: Subscription;
 }
 

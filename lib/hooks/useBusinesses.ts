@@ -1,10 +1,10 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Business } from "@/types";
+import { Business, SubscriptionStatus } from "@/types";
 import { getBusinesses } from "@/lib/api/endpoints";
 
-export function useBusinesses(search?: string) {
+export function useBusinesses(search?: string, status?: SubscriptionStatus) {
   const [data, setData] = useState<Business[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -16,7 +16,7 @@ export function useBusinesses(search?: string) {
       try {
         setIsLoading(true);
         setError(null);
-        const businesses = await getBusinesses(search);
+        const businesses = await getBusinesses(search, status);
         if (mounted) {
           setData(businesses);
         }
@@ -38,7 +38,7 @@ export function useBusinesses(search?: string) {
     return () => {
       mounted = false;
     };
-  }, [search]);
+  }, [search, status]);
 
   return { data, isLoading, error };
 }

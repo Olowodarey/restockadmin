@@ -55,31 +55,37 @@ export default function HomePage() {
                 title="Total Businesses"
                 value={data.totalBusinesses}
                 variant="info"
+                href="/businesses"
               />
               <StatsCard
                 title="Trialing"
                 value={data.byStatus[SubscriptionStatus.TRIALING] || 0}
                 variant="info"
+                href={`/businesses?status=${SubscriptionStatus.TRIALING}`}
               />
               <StatsCard
                 title="Active"
                 value={data.byStatus[SubscriptionStatus.ACTIVE] || 0}
                 variant="success"
+                href={`/businesses?status=${SubscriptionStatus.ACTIVE}`}
               />
               <StatsCard
                 title="Past Due"
                 value={data.byStatus[SubscriptionStatus.PAST_DUE] || 0}
                 variant="warning"
+                href={`/businesses?status=${SubscriptionStatus.PAST_DUE}`}
               />
               <StatsCard
                 title="Suspended"
                 value={data.byStatus[SubscriptionStatus.SUSPENDED] || 0}
                 variant="error"
+                href={`/businesses?status=${SubscriptionStatus.SUSPENDED}`}
               />
               <StatsCard
                 title="Canceled"
                 value={data.byStatus[SubscriptionStatus.CANCELED] || 0}
                 variant="gray"
+                href={`/businesses?status=${SubscriptionStatus.CANCELED}`}
               />
             </div>
           </div>

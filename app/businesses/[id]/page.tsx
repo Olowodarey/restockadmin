@@ -122,19 +122,19 @@ export default function BusinessDetailPage() {
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-gray-200 bg-white">
-                    {business.users.map((user) => (
-                      <tr key={user.id}>
+                    {business.memberships.map((membership) => (
+                      <tr key={membership.id}>
                         <td className="whitespace-nowrap px-4 py-3 text-sm text-gray-900">
-                          {user.email}
+                          {membership.user.email}
                         </td>
                         <td className="whitespace-nowrap px-4 py-3 text-sm text-gray-900">
-                          {user.name}
+                          {membership.user.name}
                         </td>
                         <td className="whitespace-nowrap px-4 py-3">
-                          <RoleBadge role={user.role} />
+                          <RoleBadge role={membership.user.role} />
                         </td>
                         <td className="whitespace-nowrap px-4 py-3 text-sm text-gray-500">
-                          {formatDate(user.createdAt)}
+                          {formatDate(membership.user.createdAt)}
                         </td>
                       </tr>
                     ))}
