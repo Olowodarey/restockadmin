@@ -1,4 +1,4 @@
-# Restock Admin Dashboard
+# Kobook Admin Dashboard
 
 Master admin web console for managing multi-tenant shop businesses and subscriptions.
 

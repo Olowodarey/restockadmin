@@ -2,7 +2,7 @@
 
 ## Overview
 
-The Restock Admin Dashboard is a Next.js App Router application providing master administrators with system-wide management capabilities for businesses and subscriptions. The application implements Google OAuth authentication, role-based access control, and integrates with a NestJS backend API to display statistics, manage businesses, and modify subscription parameters.
+The Kobook Admin Dashboard is a Next.js App Router application providing master administrators with system-wide management capabilities for businesses and subscriptions. The application implements Google OAuth authentication, role-based access control, and integrates with a NestJS backend API to display statistics, manage businesses, and modify subscription parameters.
 
 ## Technology Stack
 
@@ -1679,7 +1679,7 @@ npm run build
 ### Environment Variables (Production)
 
 ```bash
-NEXT_PUBLIC_API_BASE_URL=https://api.restock.example.com
+NEXT_PUBLIC_API_BASE_URL=https://api.kobook.example.com
 NEXT_PUBLIC_GOOGLE_CLIENT_ID=production-client-id.apps.googleusercontent.com
 ```
 

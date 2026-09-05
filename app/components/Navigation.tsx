@@ -15,7 +15,7 @@ export function Navigation() {
           <div className="flex">
             <div className="flex flex-shrink-0 items-center">
               <span className="text-xl font-bold text-gray-900">
-                Restock Admin
+                Kobook Admin
               </span>
             </div>
             <div className="hidden sm:ml-6 sm:flex sm:space-x-8">

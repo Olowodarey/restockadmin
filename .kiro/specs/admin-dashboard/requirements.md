@@ -2,7 +2,7 @@
 
 ## Introduction
 
-The Restock Admin Dashboard is a master-admin web console for managing multi-tenant shop businesses and their subscriptions. It provides authenticated access exclusively to users with MASTER_ADMIN role to view system-wide statistics, search and browse businesses, view detailed business information with associated users and subscription data, and modify subscription parameters. The dashboard integrates with an existing NestJS backend API that enforces role-based access control.
+The Kobook Admin Dashboard is a master-admin web console for managing multi-tenant shop businesses and their subscriptions. It provides authenticated access exclusively to users with MASTER_ADMIN role to view system-wide statistics, search and browse businesses, view detailed business information with associated users and subscription data, and modify subscription parameters. The dashboard integrates with an existing NestJS backend API that enforces role-based access control.
 
 ## Glossary
 

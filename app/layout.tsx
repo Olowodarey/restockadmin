@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Restock Admin Dashboard",
-  description: "Master admin console for managing Restock businesses and subscriptions",
+  title: "Kobook Admin Dashboard",
+  description: "Master admin console for managing Kobook businesses and subscriptions",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
