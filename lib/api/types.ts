@@ -43,3 +43,15 @@ export interface UpdateSubscriptionRequest {
 
 // Subscription update response
 export type UpdateSubscriptionResponse = Subscription;
+
+// Global app settings (operator-controlled). Currently just the default
+// free-trial length applied to new signups.
+export interface AppSettings {
+  trialDays: number;
+}
+
+export type SettingsResponse = AppSettings;
+
+export interface UpdateSettingsRequest {
+  trialDays?: number;
+}

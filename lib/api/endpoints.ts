@@ -8,6 +8,8 @@ import {
   BusinessDetailResponse,
   UpdateSubscriptionRequest,
   UpdateSubscriptionResponse,
+  SettingsResponse,
+  UpdateSettingsRequest,
 } from "./types";
 
 /**
@@ -62,4 +64,20 @@ export async function updateSubscription(
     `/admin/businesses/${businessId}/subscription`,
     request
   );
+}
+
+/**
+ * Get global app settings (currently the default free-trial length).
+ */
+export async function getSettings(): Promise<SettingsResponse> {
+  return apiClient.get<SettingsResponse>("/admin/settings");
+}
+
+/**
+ * Update global app settings.
+ */
+export async function updateSettings(
+  request: UpdateSettingsRequest
+): Promise<SettingsResponse> {
+  return apiClient.patch<SettingsResponse>("/admin/settings", request);
 }
