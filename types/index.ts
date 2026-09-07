@@ -29,6 +29,17 @@ export interface User {
   createdAt: string;
 }
 
+// Account-wide entitlement caps — replaced the old "any business ACTIVE =
+// unlimited shops/staff" rule. Set per account by a master admin after the
+// owner pays for a specific plan (e.g. "paid for 2 staff" -> maxStaff: 2).
+export interface UserEntitlements {
+  id: string;
+  email: string;
+  name: string;
+  maxShops: number;
+  maxStaff: number;
+}
+
 // Join row between a Business and a User — mirrors the backend's
 // BusinessMembership entity. A Business's owner(s) are reached via
 // business.memberships[].user, not a direct business.users array (the

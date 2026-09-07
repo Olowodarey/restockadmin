@@ -10,6 +10,11 @@ import {
   UpdateSubscriptionResponse,
   SettingsResponse,
   UpdateSettingsRequest,
+  UserEntitlementsResponse,
+  UpdateEntitlementsRequest,
+  UserBusinessesResponse,
+  CreateBusinessForUserRequest,
+  CreateBusinessForUserResponse,
 } from "./types";
 
 /**
@@ -80,4 +85,54 @@ export async function updateSettings(
   request: UpdateSettingsRequest
 ): Promise<SettingsResponse> {
   return apiClient.patch<SettingsResponse>("/admin/settings", request);
+}
+
+/**
+ * Get one owner's account-wide entitlement caps (maxShops/maxStaff).
+ */
+export async function getUserEntitlements(
+  userId: string
+): Promise<UserEntitlementsResponse> {
+  return apiClient.get<UserEntitlementsResponse>(
+    `/admin/users/${userId}/entitlements`
+  );
+}
+
+/**
+ * Set an owner's entitlement caps — what they're allowed, independent of
+ * subscription status. Call after confirming payment for a specific plan.
+ */
+export async function updateEntitlements(
+  userId: string,
+  request: UpdateEntitlementsRequest
+): Promise<UserEntitlementsResponse> {
+  return apiClient.patch<UserEntitlementsResponse>(
+    `/admin/users/${userId}/entitlements`,
+    request
+  );
+}
+
+/**
+ * "See his shops" — every business a given owner manages.
+ */
+export async function getUserBusinesses(
+  userId: string
+): Promise<UserBusinessesResponse> {
+  return apiClient.get<UserBusinessesResponse>(
+    `/admin/users/${userId}/businesses`
+  );
+}
+
+/**
+ * "Add a shop for him" — admin-initiated, bypasses the owner's own
+ * self-serve maxShops check.
+ */
+export async function createBusinessForUser(
+  userId: string,
+  request: CreateBusinessForUserRequest
+): Promise<CreateBusinessForUserResponse> {
+  return apiClient.post<CreateBusinessForUserResponse>(
+    `/admin/users/${userId}/businesses`,
+    request
+  );
 }

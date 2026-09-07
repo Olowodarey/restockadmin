@@ -5,6 +5,7 @@ import {
   DashboardStats,
   SubscriptionStatus,
   BillingInterval,
+  UserEntitlements,
 } from "@/types";
 
 // Auth API request/response types
@@ -55,3 +56,20 @@ export type SettingsResponse = AppSettings;
 export interface UpdateSettingsRequest {
   trialDays?: number;
 }
+
+// Entitlements API
+export type UserEntitlementsResponse = UserEntitlements;
+
+export interface UpdateEntitlementsRequest {
+  maxShops?: number;
+  maxStaff?: number;
+}
+
+// "See his shops" / "Add a shop for him"
+export type UserBusinessesResponse = Business[];
+
+export interface CreateBusinessForUserRequest {
+  name: string;
+}
+
+export type CreateBusinessForUserResponse = Business;

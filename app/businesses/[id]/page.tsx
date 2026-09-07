@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useParams, useRouter } from "next/navigation";
+import Link from "next/link";
 import { useAuth } from "@/lib/auth/useAuth";
 import { useBusinessDetail } from "@/lib/hooks/useBusinessDetail";
 import { Navigation } from "../../components/Navigation";
@@ -119,6 +120,7 @@ export default function BusinessDetailPage() {
                       <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
                         Created
                       </th>
+                      <th className="px-4 py-3" />
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-gray-200 bg-white">
@@ -136,11 +138,24 @@ export default function BusinessDetailPage() {
                         <td className="whitespace-nowrap px-4 py-3 text-sm text-gray-500">
                           {formatDate(membership.user.createdAt)}
                         </td>
+                        <td className="whitespace-nowrap px-4 py-3 text-right text-sm">
+                          <Link
+                            href={`/users/${membership.user.id}`}
+                            className="font-medium text-blue-600 hover:text-blue-800"
+                          >
+                            Manage
+                          </Link>
+                        </td>
                       </tr>
                     ))}
                   </tbody>
                 </table>
               </div>
+              <p className="mt-3 text-xs text-gray-500">
+                &ldquo;Manage&rdquo; shows every shop this owner runs and lets
+                you set their entitlement caps (max shops/staff) or add
+                another shop directly.
+              </p>
             </div>
 
             <div className="rounded-lg border border-gray-200 bg-white p-6">
